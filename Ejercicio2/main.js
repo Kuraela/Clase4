@@ -1,3 +1,5 @@
+
+
 /*///// Código del ejercicio de configuración de canvas (S05. Ex.01.) ///*/
 const CANVAS = document.getElementById("lienzo");
 const CTX = CANVAS.getContext("2d");
@@ -9,19 +11,18 @@ function updateCanvasSize() {
   CANVAS.height = CANVAS.getBoundingClientRect().height;
 }
 
-//COMO METER EN UNA FUNCION UN OBJETO (EN ESTE CASO UNA LINEA) PARA SOLO COPIAR Y PEGAR Y PODER DUPLICAR UN OBJETO
-
-function renderOneLine(colorTrazo, grosorLinea, origenX, origenY, finalX, finalY){
+function renderOneLine(colorTrazo, grosorLinea, origenX, origenY, finalX, finalY) {
     CTX.strokeStyle = colorTrazo;
     CTX.lineWidth = grosorLinea;
     CTX.beginPath();
     CTX.moveTo(origenX, origenY);
-    CTX.lineTo();
+    CTX.lineTo(finalX, finalY);
     CTX.stroke();
 }
 
+//COMO METER EN UNA FUNCION UN OBJETO (EN ESTE CASO UNA LINEA) PARA SOLO COPIAR Y PEGAR Y PODER DUPLICAR UN OBJETO
 //renderOneLine(colorTrazo, grosorLinea, origenX, origenY, finalX, finalY
-renderOneLine("#ffff00",2 ,10, 300);
+//renderOneLine("#ffff00",2 ,10, 300);
 
 /*///// 1. Definir funcion de dibujo que estaremos repitiendo usando requestAnimationFrame() ///*/
 function renderLines() {
@@ -40,10 +41,11 @@ function renderLines() {
       7. En caso de desear realizar más líneas, se repiten los pasos del 1 al 6.
     */
   CTX.strokeStyle = "aqua";
-  CTX.lineWidth = 5;
+  CTX.lineWidth = 20;
+
   CTX.beginPath();
   CTX.moveTo(30, 30);  //nos genera un punto nada mas, la coordenada donde va a iniar a dibujarse la línea
-  CTX.lineTo(160, 160);  //nos genera ya una línea
+  CTX.lineTo(160, 160);    //nos genera ya una línea
   CTX.lineTo(360, 160);
   CTX.closePath();
   CTX.stroke();
@@ -54,6 +56,8 @@ function renderLines() {
   CTX.moveTo(100, 30);
   CTX.lineTo(60, 260);
   CTX.stroke();
+  
+  renderOneLine("green", 5, 0, 0, 50, 500);
 
   requestAnimationFrame(renderLines);
 }
@@ -69,3 +73,27 @@ requestAnimationFrame(renderLines);
 /* Happy Coding! 👾 */
 // Documentacion sobre los comandos de dibujo disponibles:
 // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
